@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" android:theme="@style/AppTheme"
+             tools:context=".MapsActivity">
+
+    <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/map"
+              android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/PrimaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_search"
+        android:clickable="true" android:id="@+id/search_button"
+        android:focusable="true" android:layout_marginRight="11dp" android:layout_marginBottom="140dp"
+        android:layout_centerInParent="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_my_location"
+        android:clickable="true" android:id="@+id/location_button"
+        android:focusable="true" android:layout_marginRight="11dp" android:layout_marginBottom="59dp"
+        android:layout_centerInParent="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/p2p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="221dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_wifi_tethering"/>
+
+
+</RelativeLayout>

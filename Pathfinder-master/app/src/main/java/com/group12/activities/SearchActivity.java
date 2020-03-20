@@ -33,13 +33,15 @@ public class SearchActivity extends AppCompatActivity implements MaterialSearchB
         searchBar.setOnSearchActionListener(this);
         settingButton = findViewById(R.id.setting_button);
         sliderValues = findViewById(R.id.sliderText);
-        int speed = 0;
-        int comfort = 0;
+        boolean rail = true;
+        boolean luas = true;
+        boolean bus = true;
         if(b != null) {
-            speed = b.getInt("speed");
-            comfort = b.getInt("comfort");
+            rail = b.getBoolean("Rail");
+            luas = b.getBoolean("Luas");
+            bus = b.getBoolean("Bus");
         }
-        sliderValues.setText("Speed: " + speed + "\nComfort: " + comfort);
+        sliderValues.setText("Luas: " + luas + "\nRail: " + rail + "\nBus: " + bus);
         settingButton.setOnClickListener(new View.OnClickListener() {
                                              @Override
                                              public void onClick(View view) {

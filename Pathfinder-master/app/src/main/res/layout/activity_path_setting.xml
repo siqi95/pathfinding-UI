@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/background_light"
+    android:background="@android:color/darker_gray"
     android:theme="@style/AppTheme"
     tools:context=".PathSettingActivity">
 
@@ -22,47 +22,74 @@
     <TextView
         android:layout_width="80dp"
         android:layout_height="100dp"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="200dp"
         android:autoText="false"
         android:background="#00B11D1D"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="@string/speed"
+        android:text="Luas"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="369dp" />
-
-    <SeekBar
-        android:id="@+id/speedSlider"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="200dp"
-        android:backgroundTint="#000000"
-        android:clickable="false"
-        android:tickMarkTint="#00BC1313"
-        android:visibility="visible" />
 
     <TextView
         android:layout_width="80dp"
         android:layout_height="100dp"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="300dp"
         android:gravity="center"
-        android:text="@string/comfort"
+        android:text="Rail"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="369dp" />
 
-    <SeekBar
-        android:id="@+id/comfortSlider"
-        android:layout_width="300dp"
+    <TextView
+        android:layout_width="80dp"
         android:layout_height="100dp"
         android:layout_marginStart="100dp"
+        android:layout_marginTop="400dp"
+        android:gravity="center"
+        android:text="Bus"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <Switch
+        android:id="@+id/luasSwitch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#000000"
+        android:buttonTint="#E10707"
+        android:drawableTint="#8F1616"
+        android:foregroundTint="#ED0101"
+        android:textColor="#931B1B"
+        android:textColorHighlight="#F11010"
+        android:tickMarkTint="#00BC1313"
+        android:visibility="visible" />
+
+    <Switch
+        android:id="@+id/railSwitch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="300dp" />
+
+    <Switch
+        android:id="@+id/busSwitch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="400dp"
+        android:backgroundTint="#C32222"
+        android:buttonTint="@color/layout_border_color"
+        android:checked="false"
+        android:drawableTint="#E11414" />
 
     <Button
         android:id="@+id/saveSettingButton"

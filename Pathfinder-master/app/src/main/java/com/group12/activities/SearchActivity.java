@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,15 +13,16 @@ import com.group12.pathfinder.AbstractPathFinder;
 import com.group12.pathfinder.PathFinderFactory;
 import com.group12.utils.RequestMaker;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SearchActivity extends AppCompatActivity implements MaterialSearchBar.OnSearchActionListener {
     private static final Logger LOGGER = LoggerFactory.getLogger(SearchActivity.class);
     private MaterialSearchBar searchBar;
-    private FloatingActionButton settingButton;
-    private TextView sliderValues;
+    private FloatingActionButton settingButton, realtimeButton;
     private Bundle b;
+    private String travelParam = "0";
     @SuppressLint("SetTextI18n")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,20 +32,20 @@ public class SearchActivity extends AppCompatActivity implements MaterialSearchB
         searchBar = findViewById(R.id.search_bar);
         searchBar.setOnSearchActionListener(this);
         settingButton = findViewById(R.id.setting_button);
-        sliderValues = findViewById(R.id.sliderText);
-        boolean rail = true;
-        boolean luas = true;
-        boolean bus = true;
-        if(b != null) {
-            rail = b.getBoolean("Rail");
-            luas = b.getBoolean("Luas");
-            bus = b.getBoolean("Bus");
-        }
-        sliderValues.setText("Luas: " + luas + "\nRail: " + rail + "\nBus: " + bus);
+        realtimeButton = findViewById(R.id.realtime_button);
+        if(b != null) travelParam = b.getString("travelChoice");
         settingButton.setOnClickListener(new View.OnClickListener() {
                                              @Override
                                              public void onClick(View view) {
                                                  Intent intent = new Intent(SearchActivity.this,PathSettingActivity.class);
+                                                 startActivity(intent);
+                                             }
+                                         }
+        );
+        realtimeButton.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View view) {
+                                                 Intent intent = new Intent(SearchActivity.this,RealtimeDataActivity.class);
                                                  startActivity(intent);
                                              }
                                          }
@@ -62,7 +62,7 @@ public class SearchActivity extends AppCompatActivity implements MaterialSearchB
     public void onSearchConfirmed(CharSequence text) {
        PathFinderFactory factory = (PathFinderFactory) getIntent().getSerializableExtra(PathFinderFactory.class.getName());
        String destination = text.toString();
-       factory.setDestination(destination);
+       factory.setDestination(travelParam.concat(destination));
        AbstractDirectionsObject response = searchForDirection(factory);
        Intent intent = new Intent(SearchActivity.this,MapsActivity.class);
        intent.putExtra("Response",response);
